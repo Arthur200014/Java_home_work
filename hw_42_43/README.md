@@ -1,24 +1,26 @@
-# Homework 42-43
+# Домашняя работа 42–43
 
-Spring MVC application without Spring Boot. Data is stored in PostgreSQL through Spring Data JPA.
+Приложение на Spring MVC без Spring Boot. Данные хранятся в PostgreSQL через Spring Data JPA.
 
-## Database
+## База данных
 
-Create database:
+Создать базу:
 
 ```sql
 create database hw42_db;
 ```
 
-Database settings are in `src/main/resources/application.properties`.
+Настройки подключения находятся в `src/main/resources/application.properties`.
 
-## Endpoints
+Таблица `users` создаётся Hibernate автоматически при первом запуске.
 
-- `GET /users`
-- `GET /users/{id}`
-- `POST /users`
+## Эндпоинты
 
-Example request body:
+- `GET /users` — получить всех пользователей
+- `GET /users/{id}` — получить пользователя по id
+- `POST /users` — добавить пользователя
+
+Пример тела запроса:
 
 ```json
 {
@@ -28,4 +30,12 @@ Example request body:
 }
 ```
 
-Build the project with Maven and deploy `target/hw42-43.war` to Tomcat 10+.
+## Запуск
+
+Собрать проект:
+
+```bash
+mvn clean package
+```
+
+После сборки файл `target/hw42-43.war` нужно развернуть в Tomcat 10+.
